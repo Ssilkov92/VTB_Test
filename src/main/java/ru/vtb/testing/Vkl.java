@@ -100,7 +100,4 @@ public class Vkl extends Constants {
         WebElement reason = driver.findElement(By.xpath("//*[text()=\"Не устроил сервис Банка\"]"));
         Assertions.assertTrue(reason.getText().equals("Не устроил сервис Банка"));
     }
-
 }
-
-

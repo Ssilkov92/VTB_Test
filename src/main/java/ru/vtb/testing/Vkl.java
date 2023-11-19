@@ -63,7 +63,6 @@ public class Vkl extends Constants {
        WebElement contract1 = driver.findElement(By.xpath("//p[@class=\"sc-fzoXWK gXRMTX\" and text()=\"Кредитная линия\"]"));
         Assertions.assertTrue(contract1.getText().equals("Кредитная линия"));
     }
-
     public void checkButtonHaveTransh() {
         driver.findElement(buttonHaveTransh).isEnabled();
     }

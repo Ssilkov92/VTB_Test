@@ -36,7 +36,7 @@ public class Vkl extends Constants {
         driver.findElement(buttonLogin).click();
         driver.findElement(fieldLogin).sendKeys(uncVkl);
         driver.findElement(buttonVoyti).click();
-        driver.findElement(smsCodeField).sendKeys(sms);
+        driver.findElement(smsCodeField).sendKeys("111111");
     }
 
     public void enterPassword() throws InterruptedException {

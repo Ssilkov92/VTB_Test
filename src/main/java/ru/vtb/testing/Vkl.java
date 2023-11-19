@@ -1,7 +1,5 @@
 package ru.vtb.testing;
-
 /*Created by Stanislav Silkov */
-
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -10,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import settings.Constants;
 
 import java.time.Duration;
-
 
 public class Vkl extends Constants {
     public WebDriver driver;
@@ -25,7 +22,7 @@ public class Vkl extends Constants {
     private final By buttonVoyti = By.xpath("//*[button=\"Войти\"]");
     private final By smsCodeField = By.xpath("//input[@label=\"Код\"]");
     private final By buttonEsc = By.xpath("//button[@title=\"закрыть окно\"]");
-    private final By buttonDownload = By.xpath("//span[@class=\"sc-pJUVA dLlvSd\"]");
+    private final By buttonDownload = By.xpath("//span[@class=\"sc-fznOgF dwQnAk\"]");
     private final By tabInformation = By.xpath("//span[text()=\"Информация\"]");
     private final By buttonHaveTransh = By.xpath("//button[@aria-label=\"Получить транш \"]");
     private final By buttonMore = By.xpath("//button[@data-test-id=\"productactions_button\"]");
@@ -35,15 +32,14 @@ public class Vkl extends Constants {
     private final By buttonCloseApply = By.xpath("//button[@class=\"sc-fzokOt sc-fzqBZW ezwqoX\"]");
     private final By listClose = By.xpath("//*[@class=\"sc-qQZrP bwWxNC\"]");
 
-
-    public void enterLoginPassword() {
+    public void enterLoginAndSmsCode() {
         driver.findElement(buttonLogin).click();
         driver.findElement(fieldLogin).sendKeys(uncVkl);
         driver.findElement(buttonVoyti).click();
         driver.findElement(smsCodeField).sendKeys(sms);
     }
 
-    public void enterSmsCode() throws InterruptedException {
+    public void enterPassword() throws InterruptedException {
         driver.findElement(fieldPassword).sendKeys(password);
         Thread.sleep(1000);
         driver.findElement(buttonVoyti).click();
@@ -60,7 +56,7 @@ public class Vkl extends Constants {
         driver.findElement(tabInformation).click();
     }
    public void checkFieldTabInformation(){
-       WebElement contract1 = driver.findElement(By.xpath("//p[@class=\"sc-fzoXWK gXRMTX\" and text()=\"Кредитная линия\"]"));
+       WebElement contract1 = driver.findElement(By.xpath("//*[@class=\"sc-fzoXWK dMoHqX\" and text()=\"Кредитная линия\"]"));
         Assertions.assertTrue(contract1.getText().equals("Кредитная линия"));
     }
     public void checkButtonHaveTransh() {

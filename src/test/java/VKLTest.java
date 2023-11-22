@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import ru.vtb.testing.Vkl;
+
 import java.util.concurrent.TimeUnit;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -25,7 +26,7 @@ public class VKLTest {
     @Order(1)
     @Test
     @DisplayName("Ввод логина и пароля")
-    public void enterLoginAndSmsCode(){
+    public void enterLoginAndSmsCode() {
         Vkl Vkl = new Vkl(driver);
         Vkl.enterLoginAndSmsCode();
     }
@@ -38,38 +39,62 @@ public class VKLTest {
         Vkl.enterPassword();
     }
 
-//    @Test
-//    @DisplayName("Название вкладки \"История операций\"")
-//    @Order(3)
-//    public void g() throws InterruptedException {
-//        Thread.sleep(4000);
-//        WebElement asss = driver.findElement(By.xpath("//button[@id=\"HISTORY\"]"));
-//        Assertions.assertTrue(asss.getText().equals("История операций"));
-//    }
-//
-//    @Test
-//    @DisplayName("Наличие кнопки \"Скачать выписку\"")
-//    @Order(4)
-//    public void h() {
-//        Vkl Vkl = new Vkl(driver);
-//        Vkl.checkButtonDownload();
-//    }
-//
-//    @Test
-//    @DisplayName("Нажатие вкладки Информация")
-//    @Order(5)
-//    public void k() {
-//        Vkl Vkl = new Vkl(driver);
-//        Vkl.clickTabInformation();
-//    }
-//
-//    @Test
-//    @DisplayName("Проверка полей во вкладке Информация")
-//    @Order(6)
-//    public void l() {
-//        Vkl Vkl = new Vkl(driver);
-//        Vkl.checkFieldTabInformation();
-//    }
+    @Test
+    @DisplayName("Наличие вкладки \"История операций\"")
+    @Order(3)
+    public void checkTabHistory() throws InterruptedException {
+        Thread.sleep(4000);
+        WebElement asss = driver.findElement(By.xpath("//button[@id=\"HISTORY\"]"));
+        Assertions.assertTrue(asss.getText().equals("История операций"));
+    }
+
+    @Test
+    @DisplayName("Наличие кнопки скачивания выписки")
+    @Order(4)
+    public void checkButtonDownload() {
+        Vkl Vkl = new Vkl(driver);
+        Vkl.checkButtonDownload();
+    }
+    @Test
+    @DisplayName("Нажатие вкладки Информация")
+    @Order(5)
+    public void clickTabInformation() {
+        Vkl Vkl = new Vkl(driver);
+        Vkl.clickTabInformation();
+    }
+
+    @Test
+    @DisplayName("Проверка полей во вкладке Информация")
+    @Order(6)
+    public void checkFieldTabInformation() {
+        Vkl Vkl = new Vkl(driver);
+        Vkl.checkFieldTabInformation();
+    }
+
+    @Test
+    @DisplayName("Наличие кнопки Отправить по емэйл в подвале")
+    @Order(7)
+    public void checkButtonSendOnEmail() {
+        Vkl Vkl = new Vkl(driver);
+        Vkl.checkButtonSendOnEmail();
+    }
+
+    @Test
+    @DisplayName("Наличие кнопки Сохаранить в подвале")
+    @Order(8)
+    public void checkButtonDownloadinFooter() {
+        Vkl Vkl = new Vkl(driver);
+        Vkl.checkDownloadReport();
+    }
+
+    @Test
+    @DisplayName("Наличие кнопки Печать по емэйл в подвале")
+    @Order(9)
+    public void checkButtonPechat() {
+        Vkl Vkl = new Vkl(driver);
+        Vkl.checkButtonPechat();
+    }
+
 
 //    @Test
 //    @DisplayName("Проверка кнопки Получить Транш")

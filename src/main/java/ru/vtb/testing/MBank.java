@@ -20,18 +20,27 @@ public class MBank extends Constants {
     private final By fieldPassword = By.xpath("//input[@type=\"password\"]");
     private final By buttonVoyti = By.xpath("//*[button=\"Войти\"]");
     private final By smsCodeField = By.xpath("//input[@label=\"Код\"]");
-    private final By buttonPopolnit = By.xpath("//button[@aria-label=\"Пополнить \"]");
-    private final By bannerDiscounts = By.xpath("//*[@data-test-id=\"offersbanner_offer-banner_banner\"]");
-    private final By buttonDownLoad = By.xpath("//button[@title=\"Открыть выбор получения выписки\"]");
-    private final By buttonDownLoadPDF = By.xpath("//*[@data-test-id=\"get_document_presentation_button_button\"]");
+    private final By buttonPopolnit = By.xpath("//button[text()=\"Пополнить\"]");
+    private final By buttonOplatit = By.xpath("//button[text()=\"Оплатить\"]");
 
-    private final By tabDebt = By.xpath("//span[text()=\"Информация о задолженности\"]");
+    private final By pageInformation = By.xpath("//a[@class=\"SettingsView__StyledLink-sc-dhdr1i-0 kigDdL\"][1]");
+    private final By pageSettings = By.xpath("//div[text()=\"Настройки\"]");
+    private final By pageHistoryOperation = By.xpath("//a[@href=\"/history\"]");
+    private final By pageHowUseCard = By.xpath("//div[text()=\"Как пользоваться картой\"]");
+
+    private final By tabDebt = By.xpath("//button[text()=\"Задолженность\"]");
+
+    private final By accMinAmount = By.xpath("//p[text()=\"Минимальный платеж\"]");
+    private final By accGrace = By.xpath("//p[text()=\"Беспроцентный период\"]");
+    private final By accDebt = By.xpath("//*[@class=\"sc-pIxCL hfpFnr\"]//p[text()=\"Общая задолженность\"]");
+    private final By accCredLim = By.xpath("//p[text()=\"Кредитный лимит\"]");
+    private final By accTarrifs = By.xpath("//p[text()=\"Тарифы и условия\"]");
 
     private final By footerButtonDownLoad = By.xpath("//p[text()=\"Сохранить\"]");
     private final By footerButtonSend = By.xpath("//p[text()=\"Отправить по email\"]");
     private final By footerButtonPrint = By.xpath("//p[text()=\"Печать\"]");
 
-    private final By tabRekvizits = By.xpath("//span[text()=\"Реквизиты\"]");
+    private final By tabRekvizits = By.xpath("//button[text()=\"Реквизиты\"]");
     private final By titleRekvAcc = By.xpath("//span[text()=\"Реквизиты счета • 9751\"]");
     private final By fieldBankName = By.xpath("//span[text()=\"Наименование банка получателя\"]");
     private final By fieldBIK = By.xpath("//span[text()=\"БИК банка получателя\"]");
@@ -48,61 +57,105 @@ public class MBank extends Constants {
     private final By fieldOwner = By.xpath("//span[text()=\"Владелец карты\"]");
     private final By fieldStatus = By.xpath("//span[text()=\"Статус карты\"]");
 
-    private final By buttonMore = By.xpath("//button[@data-test-id=\"productactions_button\"]");
-
     private final By buttonGiveAndPay = By.xpath("//*[text()=\"Перевести и Оплатить\"]");
     private final By buttonTabDebt = By.xpath("//*[text()=\"Информация о задолженности\"]");
     private final By buttonCloseMBank = By.xpath("//*[text()=\"Закрыть карту\"]");
 
     private final By buttonPonyatno = By.xpath("//*[text()=\"Понятно\"]");
 
-    public void enterLoginAndSmsCode() {
+
+    public void Authorization() throws InterruptedException {
+        driver.findElement(buttonLogin).click();
+        driver.findElement(fieldPassword).sendKeys(password);
+        Thread.sleep(1000);
+        driver.findElement(fieldLogin).sendKeys(uncMbank);
+        driver.findElement(buttonVoyti).click();
+        driver.findElement(smsCodeField).sendKeys("000000");
+        Thread.sleep(2000);
+        driver.get("https://ift-ibrb1-sharing.vtb.ru/details/CreditCard/96939526DBFF4AE9A7D55E7850924F04");
+        Thread.sleep(2000);
+    }
+    public void Authorization2() throws InterruptedException {
         driver.findElement(buttonLogin).click();
         driver.findElement(fieldLogin).sendKeys(uncMbank);
         driver.findElement(buttonVoyti).click();
         driver.findElement(smsCodeField).sendKeys("000000");
-    }
-
-    public void enterPassword() throws InterruptedException {
         driver.findElement(fieldPassword).sendKeys(password);
         Thread.sleep(1000);
         driver.findElement(buttonVoyti).click();
         Thread.sleep(2000);
-        driver.get("https://ift-ibrb1-sharing.vtb.ru/details/RevolvingCreditLine/B05D7FBD9C2141D99D05F2D08D790CAC");
+        driver.get("https://ift-ibrb1-sharing.vtb.ru/details/CreditCard/96939526DBFF4AE9A7D55E7850924F04");
         Thread.sleep(2000);
     }
 
-    public void checkButtonpopolnit() {
+    public void checkButtonPopolnit() {
         driver.findElement(buttonPopolnit).isDisplayed();
     }
 
-    public void checkBannerDiscounts() {
-        driver.findElement(bannerDiscounts).isDisplayed();
-        WebElement bannerDiscountsText = driver.findElement(By.xpath("//h2[@class=\"sc-fzpkqZ bItIjs\"]"));
-        System.out.println(bannerDiscountsText.getText());
-        Assertions.assertTrue(bannerDiscountsText.getText().equals("Акции и скидки от партнеров ВТБ"));
+    public void checkButtonOplatit() {
+        driver.findElement(buttonOplatit).isDisplayed();
     }
 
-    public void checktabIO(){
-        driver.findElement(buttonDownLoad).click();
-        driver.findElement(buttonDownLoadPDF).click();
+
+    public void pageInformation() {
+        driver.findElement(pageInformation).isDisplayed();
     }
 
-    public void clickTabDebt(){
-        driver.findElement(tabDebt).click();
+    public void pageSettings() {
+        driver.findElement(pageSettings).isDisplayed();
     }
 
-    public void checkButtonsDebt(){
+    public void pageHistoryOperation() {
+        driver.findElement(pageHistoryOperation).isDisplayed();
+    }
+
+    public void pageHowUseCard() {
+        driver.findElement(pageHowUseCard).isDisplayed();
+    }
+
+    public void clickTabDebt() {
+        driver.findElement(tabDebt).isDisplayed();
+    }
+
+    public void checkAccMinAmount() {
+        driver.findElement(accMinAmount).click();
+    }
+
+    public void checkAccGrace() {
+        driver.findElement(accGrace).click();
+    }
+
+    public void checkAccDebt() {
+        driver.findElement(accDebt).click();
+    }
+
+    public void checkAccCredLim() {
+        driver.findElement(accCredLim).click();
+    }
+
+    public void checkAccTarrifs() throws InterruptedException {
+        driver.findElement(accTarrifs).click();
+        Thread.sleep(2000);
+    }
+
+    public void checkButtonDownLoad() {
         driver.findElement(footerButtonDownLoad).isDisplayed();
+    }
+
+    public void checkButtonSend() {
         driver.findElement(footerButtonSend).isDisplayed();
+    }
+
+    public void checkButtonPrint() {
         driver.findElement(footerButtonPrint).isDisplayed();
     }
 
-    public void clickTabRekv(){
+    public void clickTabRekv() throws InterruptedException {
+        Thread.sleep(2000);
         driver.findElement(tabRekvizits).click();
     }
 
-    public void checkFieldsTabRekv(){
+    public void checkFieldsTabRekv() {
         driver.findElement(titleRekvAcc).isDisplayed();
         driver.findElement(fieldBankName).isDisplayed();
         driver.findElement(fieldBIK).isDisplayed();
@@ -121,23 +174,18 @@ public class MBank extends Constants {
         driver.findElement(fieldStatus).isDisplayed();
     }
 
-    public void clickButtonMore(){
-        driver.findElement(buttonMore).click();
-    }
-
-    public void checkMenuMore(){
+    public void checkMenuMore() {
         driver.findElement(buttonGiveAndPay).isEnabled();
         driver.findElement(buttonTabDebt).isEnabled();
         driver.findElement(buttonCloseMBank).isEnabled();
     }
 
-    public void checkError(){
+    public void checkError() {
         driver.findElement(buttonCloseMBank).click();
         WebElement warning = driver.findElement(By.xpath("//h2[text()=\"Есть задолженность или операции в обработке\"]"));
         Assertions.assertTrue(warning.getText().equals("Есть задолженность или операции в обработке"));
         driver.findElement(buttonPonyatno).click();
     }
-
 
 
 }

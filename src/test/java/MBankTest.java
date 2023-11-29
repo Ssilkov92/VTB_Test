@@ -48,72 +48,145 @@ public class MBankTest {
     @Test
     @Order(3)
     @DisplayName("Наличие кнопки Пополнить")
-    public void bb(){
+    public void checkButtonPopolnit() {
         MBank mbank = new MBank(driver);
-        mbank.checkButtonpopolnit();
+        mbank.checkButtonPopolnit();
     }
 
+    @Test
     @Order(4)
-    @Test
-    @DisplayName("Проверка наличия Баннера с акциями и скидками")
-    public void e(){
+    @DisplayName("Наличие кнопки Оплатить")
+    public void checkButtonOplatit() {
         MBank mbank = new MBank(driver);
-        mbank.checkBannerDiscounts();
+        mbank.checkButtonOplatit();
     }
 
+    @Test
     @Order(5)
-    @Test
-    @DisplayName("Проверка кнопок скачивания Выписки")
-    public void f(){
+    @DisplayName("Раздел Информация")
+    public void checkPageInformation() {
         MBank mbank = new MBank(driver);
-        mbank.checktabIO();
+        mbank.pageInformation();
     }
 
+
+    @Test
     @Order(6)
+    @DisplayName("Раздел Настройки")
+    public void checkPageSettings() {
+        MBank mbank = new MBank(driver);
+        mbank.pageSettings();
+    }
+
+    @Test
+    @Order(7)
+    @DisplayName("Раздел История операций")
+    public void checkPageHistoryOperation() {
+        MBank mbank = new MBank(driver);
+        mbank.pageHistoryOperation();
+    }
+
+    @Test
+    @Order(8)
+    @DisplayName("Раздел Как пользоваться картой")
+    public void checkPageHowUseCard() {
+        MBank mbank = new MBank(driver);
+        mbank.pageHowUseCard();
+    }
+
+    @Order(9)
     @Test
     @DisplayName("Проверка вкладки Задолженность")
-    public void h(){
+    public void checkTabDebt() {
         MBank mbank = new MBank(driver);
         mbank.clickTabDebt();
     }
 
-    @Order(7)
-    @Test
-    @DisplayName("Проверка кнопок во вкладке Задолженность")
-    public void k(){
-        MBank mbank = new MBank(driver);
-        mbank.checkButtonsDebt();
-    }
-
-    @Order(8)
-    @Test
-    @DisplayName("Проверка кнопок во вкладке Задолженность")
-    public void l(){
-        MBank mbank = new MBank(driver);
-        mbank.clickTabRekv();
-    }
-    @Order(9)
-    @Test
-    @DisplayName("Проверка кнопок во вкладке Задолженность")
-    public void m(){
-        MBank mbank = new MBank(driver);
-        mbank.checkFieldsTabRekv();
-    }
-
     @Order(10)
     @Test
-    @DisplayName("Проверка кнопок во вкладке Задолженность")
-    public void n(){
+    @DisplayName("Наличие блока Мин платёж")
+    public void checkAccMinAmount() {
         MBank mbank = new MBank(driver);
-        mbank.clickButtonMore();
+        mbank.checkAccMinAmount();
     }
 
     @Order(11)
     @Test
-    @DisplayName("Проверка кнопок в меню Ещё")
-    public void p(){
+    @DisplayName("Наличие и клик блока Грейс период")
+    public void checkAccGrace() {
         MBank mbank = new MBank(driver);
-        mbank.checkMenuMore();
+        mbank.checkAccGrace();
+    }
+
+    @Order(12)
+    @Test
+    @DisplayName("Наличие и клик блока Задолженность")
+    public void checkAccDebt() {
+        MBank mbank = new MBank(driver);
+        mbank.checkAccDebt();
+    }
+
+
+    @Order(13)
+    @Test
+    @DisplayName("Наличие и клик блока Кредитный лимит")
+    public void checkAccCredLim() {
+        MBank mbank = new MBank(driver);
+        mbank.checkAccCredLim();
+    }
+
+    @Order(14)
+    @Test
+    @DisplayName("Наличие и клик блока Тарифы")
+    public void checkAccTarrifs() throws InterruptedException {
+        MBank mbank = new MBank(driver);
+        mbank.checkAccTarrifs();
+    }
+    @Order(15)
+    @Test
+    @DisplayName("Наличие в подвале кнопки Скачать")
+    public void checkButtonDownLoad() {
+        MBank mbank = new MBank(driver);
+        mbank.checkButtonDownLoad();
+    }
+
+    @Order(16)
+    @Test
+    @DisplayName("Наличие в подвале кнопки Отправить на емэйл")
+    public void checkButtonSend() {
+        MBank mbank = new MBank(driver);
+        mbank.checkButtonSend();
+    }
+
+    @Order(17)
+    @Test
+    @DisplayName("Наличие в подвале кнопки Печать")
+    public void checkButtonPrint() {
+        MBank mbank = new MBank(driver);
+        mbank.checkButtonPrint();
+    }
+
+    @Order(18)
+    @Test
+    @DisplayName("Клик на таб Реквизиты")
+    public void l() throws InterruptedException {
+        MBank mbank = new MBank(driver);
+        mbank.clickTabRekv();
+    }
+
+    @Order(19)
+    @Test
+    @DisplayName("Проверка содержимого Реквизиты")
+    public void checkFieldsTabRekv() throws InterruptedException {
+        MBank mbank = new MBank(driver);
+        mbank.checkFieldsTabRekv();
+    }
+   /* @Order(9)
+    @Test
+    @DisplayName("Проверка кнопок во вкладке Задолженность")
+    public void m() {
+        MBank mbank = new MBank(driver);
+        mbank.checkFieldsTabRekv();
     }
 
     @Test
@@ -122,12 +195,12 @@ public class MBankTest {
     public void t() {
         MBank mbank = new MBank(driver);
         mbank.checkError();
-    }
+    }*/
 
-    @AfterAll
+    /*@AfterAll
     @DisplayName("Закрытие браузера")
     public static void close() {
         driver.close();
-    }
+    }*/
 
 }

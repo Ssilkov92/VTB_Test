@@ -25,19 +25,19 @@ public class VKLTest {
 
     @Order(1)
     @Test
-    @DisplayName("Ввод логина и пароля")
-    public void enterLoginAndSmsCode() {
+    @DisplayName("Авторизация")
+    public void enterLoginAndSmsCode() throws InterruptedException {
         Vkl Vkl = new Vkl(driver);
-        Vkl.enterLoginAndSmsCode();
+        Vkl.Authorization();
     }
 
-    @Order(2)
+    /*@Order(2)
     @Test
     @DisplayName("Ввод смс-кода")
     public void enterPassword() throws InterruptedException {
         Vkl Vkl = new Vkl(driver);
         Vkl.enterPassword();
-    }
+    }*/
 
     @Test
     @DisplayName("Наличие вкладки \"История операций\"")

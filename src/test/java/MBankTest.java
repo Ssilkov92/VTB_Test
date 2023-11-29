@@ -34,17 +34,17 @@ public class MBankTest {
     @DisplayName("Кнопка Логин при авторизации")
     public void a() throws InterruptedException {
         MBank mbank = new MBank(driver);
-        mbank.enterLoginAndSmsCode();
+        mbank.Authorization();
     }
 
-    @Test
+   /* @Test
     @Order(2)
     @DisplayName("Ввод смс-кода")
     public void b() throws InterruptedException {
         MBank mbank = new MBank(driver);
         mbank.enterPassword();
     }
-
+*/
     @Test
     @Order(3)
     @DisplayName("Наличие кнопки Пополнить")

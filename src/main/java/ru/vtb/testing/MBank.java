@@ -63,14 +63,23 @@ public class MBank extends Constants {
 
     private final By buttonPonyatno = By.xpath("//*[text()=\"Понятно\"]");
 
-    public void enterLoginAndSmsCode() {
+
+    public void Authorization() throws InterruptedException {
+        driver.findElement(buttonLogin).click();
+        driver.findElement(fieldPassword).sendKeys(password);
+        Thread.sleep(1000);
+        driver.findElement(fieldLogin).sendKeys(uncMbank);
+        driver.findElement(buttonVoyti).click();
+        driver.findElement(smsCodeField).sendKeys("000000");
+        Thread.sleep(2000);
+        driver.get("https://ift-ibrb1-sharing.vtb.ru/details/CreditCard/96939526DBFF4AE9A7D55E7850924F04");
+        Thread.sleep(2000);
+    }
+    public void Authorization2() throws InterruptedException {
         driver.findElement(buttonLogin).click();
         driver.findElement(fieldLogin).sendKeys(uncMbank);
         driver.findElement(buttonVoyti).click();
         driver.findElement(smsCodeField).sendKeys("000000");
-    }
-
-    public void enterPassword() throws InterruptedException {
         driver.findElement(fieldPassword).sendKeys(password);
         Thread.sleep(1000);
         driver.findElement(buttonVoyti).click();

@@ -34,7 +34,7 @@ public class MBankTest {
     @DisplayName("Кнопка Логин при авторизации")
     public void a() throws InterruptedException {
         MBank mbank = new MBank(driver);
-        mbank.Authorization();
+        mbank.Authorization2();
     }
 
    /* @Test
@@ -142,7 +142,32 @@ public class MBankTest {
         MBank mbank = new MBank(driver);
         mbank.checkAccTarrifs();
     }
+
     @Order(15)
+    @Test
+    @DisplayName("Содержимое вкладки Информация")
+    public void checkPageInformationContains() {
+        MBank mbank = new MBank(driver);
+        mbank.checkPageInformationContains();
+    }
+
+    @Order(16)
+    @Test
+    @DisplayName("Клик на таб Реквизиты")
+    public void clickTabRekv()  {
+        MBank mbank = new MBank(driver);
+        mbank.clickTabRekv();
+    }
+
+    @Order(17)
+    @Test
+    @DisplayName("Проверка содержимого Реквизиты")
+    public void checkFieldsTabRekv(){
+        MBank mbank = new MBank(driver);
+        mbank.checkFieldsTabRekv();
+    }
+
+    @Order(18)
     @Test
     @DisplayName("Наличие в подвале кнопки Скачать")
     public void checkButtonDownLoad() {
@@ -150,7 +175,7 @@ public class MBankTest {
         mbank.checkButtonDownLoad();
     }
 
-    @Order(16)
+    @Order(19)
     @Test
     @DisplayName("Наличие в подвале кнопки Отправить на емэйл")
     public void checkButtonSend() {
@@ -158,28 +183,12 @@ public class MBankTest {
         mbank.checkButtonSend();
     }
 
-    @Order(17)
+    @Order(20)
     @Test
     @DisplayName("Наличие в подвале кнопки Печать")
     public void checkButtonPrint() {
         MBank mbank = new MBank(driver);
         mbank.checkButtonPrint();
-    }
-
-    @Order(18)
-    @Test
-    @DisplayName("Клик на таб Реквизиты")
-    public void l() throws InterruptedException {
-        MBank mbank = new MBank(driver);
-        mbank.clickTabRekv();
-    }
-
-    @Order(19)
-    @Test
-    @DisplayName("Проверка содержимого Реквизиты")
-    public void checkFieldsTabRekv() throws InterruptedException {
-        MBank mbank = new MBank(driver);
-        mbank.checkFieldsTabRekv();
     }
    /* @Order(9)
     @Test

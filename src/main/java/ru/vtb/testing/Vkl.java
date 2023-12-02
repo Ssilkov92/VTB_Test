@@ -66,7 +66,7 @@ public class Vkl extends Constants {
         driver.get("https://ift-ibrb1-sharing.vtb.ru/details/RevolvingCreditLine/B05D7FBD9C2141D99D05F2D08D790CAC");
         Thread.sleep(2000);
     }
-    /*public void Authorization2() {
+    public void Authorization2() throws InterruptedException {
         driver.findElement(buttonLogin).click();
         driver.findElement(fieldLogin).sendKeys(uncVkl);
         driver.findElement(buttonVoyti).click();
@@ -77,7 +77,7 @@ public class Vkl extends Constants {
         Thread.sleep(2000);
         driver.get("https://ift-ibrb1-sharing.vtb.ru/details/RevolvingCreditLine/B05D7FBD9C2141D99D05F2D08D790CAC");
         Thread.sleep(2000);
-    }*/
+    }
 
     public void checkButtonDownload() {
         driver.findElement(buttonDownload).isEnabled();

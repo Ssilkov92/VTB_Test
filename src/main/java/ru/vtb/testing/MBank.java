@@ -40,7 +40,7 @@ public class MBank extends Constants {
     private final By footerButtonSend = By.xpath("//p[text()=\"Отправить по email\"]");
     private final By footerButtonPrint = By.xpath("//p[text()=\"Печать\"]");
 
-    private final By tabRekvizits = By.xpath("//button[text()=\"Реквизиты\"]");
+    private final By tabRekvizits = By.xpath("//*[text()=\"Реквизиты\"]");
     private final By titleRekvAcc = By.xpath("//span[text()=\"Реквизиты счета • 9751\"]");
     private final By fieldBankName = By.xpath("//span[text()=\"Наименование банка получателя\"]");
     private final By fieldBIK = By.xpath("//span[text()=\"БИК банка получателя\"]");
@@ -114,23 +114,23 @@ public class MBank extends Constants {
     }
 
     public void clickTabDebt() {
-        driver.findElement(tabDebt).isDisplayed();
+        driver.findElement(tabDebt);
     }
 
     public void checkAccMinAmount() {
-        driver.findElement(accMinAmount).click();
+        driver.findElement(accMinAmount);
     }
 
     public void checkAccGrace() {
-        driver.findElement(accGrace).click();
+        driver.findElement(accGrace);
     }
 
     public void checkAccDebt() {
-        driver.findElement(accDebt).click();
+        driver.findElement(accDebt);
     }
 
     public void checkAccCredLim() {
-        driver.findElement(accCredLim).click();
+        driver.findElement(accCredLim);
     }
 
     public void checkAccTarrifs() throws InterruptedException {
@@ -150,8 +150,13 @@ public class MBank extends Constants {
         driver.findElement(footerButtonPrint).isDisplayed();
     }
 
-    public void clickTabRekv() throws InterruptedException {
-        Thread.sleep(2000);
+    public void checkPageInformationContains(){
+        driver.findElement(pageInformation).click();
+        driver.getTitle().equals("Информация о карте");
+        driver.navigate().back();
+    }
+
+    public void clickTabRekv(){
         driver.findElement(tabRekvizits).click();
     }
 

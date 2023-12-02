@@ -28,7 +28,7 @@ public class VKLTest {
     @DisplayName("Авторизация")
     public void enterLoginAndSmsCode() throws InterruptedException {
         Vkl Vkl = new Vkl(driver);
-        Vkl.Authorization();
+        Vkl.Authorization2();
     }
 
     /*@Order(2)

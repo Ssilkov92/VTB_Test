@@ -190,6 +190,7 @@ public class MBankTest {
         MBank mbank = new MBank(driver);
         mbank.checkButtonPrint();
     }
+    /////
    /* @Order(9)
     @Test
     @DisplayName("Проверка кнопок во вкладке Задолженность")

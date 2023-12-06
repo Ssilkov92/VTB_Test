@@ -54,21 +54,30 @@ public class Vkl extends Constants {
     private final By buttonCloseApply = By.xpath("//button[@class=\"sc-fzokOt sc-fzqBZW ezwqoX\"]");
     private final By listClose = By.xpath("//*[@class=\"sc-qQZrP bwWxNC\"]");
 
-    public void enterLoginAndSmsCode() {
+
+    public void Authorization() throws InterruptedException {
+        driver.findElement(buttonLogin).click();
+        driver.findElement(fieldLogin).sendKeys(uncVkl);
+        driver.findElement(fieldPassword).sendKeys(password);
+        Thread.sleep(1000);
+        driver.findElement(buttonVoyti).click();
+        driver.findElement(smsCodeField).sendKeys("000000");
+        Thread.sleep(2000);
+        driver.get("https://ift-ibrb1-sharing.vtb.ru/details/RevolvingCreditLine/B05D7FBD9C2141D99D05F2D08D790CAC");
+        Thread.sleep(2000);
+    }
+    /*public void Authorization2() {
         driver.findElement(buttonLogin).click();
         driver.findElement(fieldLogin).sendKeys(uncVkl);
         driver.findElement(buttonVoyti).click();
         driver.findElement(smsCodeField).sendKeys("000000");
-    }
-
-    public void enterPassword() throws InterruptedException {
         driver.findElement(fieldPassword).sendKeys(password);
         Thread.sleep(1000);
         driver.findElement(buttonVoyti).click();
         Thread.sleep(2000);
         driver.get("https://ift-ibrb1-sharing.vtb.ru/details/RevolvingCreditLine/B05D7FBD9C2141D99D05F2D08D790CAC");
         Thread.sleep(2000);
-    }
+    }*/
 
     public void checkButtonDownload() {
         driver.findElement(buttonDownload).isEnabled();
